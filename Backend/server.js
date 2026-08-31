@@ -151,9 +151,11 @@ import express from "express";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import connectDB from "./config/db.js";
-import { verifyMailer } from "./config/mailer.js";
+import { verifyMailer } from "./config/Mailer.js";
+import { verifyAIClient } from "./config/aiClient.js";
 import contactRoutes from "./routes/contact.js";
 import analyticsRoutes from "./routes/analytics.js";
+import chatRoutes from "./routes/chat.js";
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -162,6 +164,10 @@ const PORT = process.env.PORT || 5000;
 //  Connect to MongoDB
 // ─────────────────────────────────────────────
 await connectDB();
+
+// Verify Gmail SMTP and AI client on startup — logs clear success/error
+verifyMailer();
+verifyAIClient();
 
 // ─────────────────────────────────────────────
 //  Global Middleware
@@ -230,6 +236,10 @@ app.get("/", (req, res) => {
         track: "POST /api/analytics/pageview",
         stats: "GET  /api/analytics/stats  [Admin]",
       },
+      chat: {
+        send: "POST /api/chat",
+        logs: "GET  /api/chat/logs  [Admin]",
+      },
     },
   });
 });
@@ -237,6 +247,7 @@ app.get("/", (req, res) => {
 // Feature routes
 app.use("/api/contact", contactRoutes);
 app.use("/api/analytics", analyticsRoutes);
+app.use("/api/chat", chatRoutes);
 
 // ─────────────────────────────────────────────
 //  404 Handler

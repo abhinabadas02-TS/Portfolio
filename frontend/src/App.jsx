@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
-import CustomCursor from "./components/Customcursor";
+import CustomCursor from "./components/CustomCursor";
+import ChatWidget from "./components/ChatWidget";
 import "./index.css";
 
 function AnimatedRoutes() {
@@ -26,6 +27,7 @@ export default function App() {
       <CustomCursor />
       <Navbar />
       <AnimatedRoutes />
+      <ChatWidget />
     </Router>
   );
 }
