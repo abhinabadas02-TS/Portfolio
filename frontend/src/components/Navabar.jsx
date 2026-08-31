@@ -8,7 +8,7 @@ const links = [
   { path: "/contact", label: "Contact", num: "04" },
 ];
 
-export default function Navbar() {
+export default function Navabar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
