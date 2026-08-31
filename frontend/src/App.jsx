@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
-import CustomCursor from "./components/CustomCursor";
+import CustomCursor from "./components/Customcursor";
 import ChatWidget from "./components/ChatWidget";
 import "./index.css";
 
