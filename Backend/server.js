@@ -203,6 +203,7 @@ app.use(
       const allowed = [
         process.env.FRONTEND_URL?.replace(/\/$/, ""), // remove trailing slash if present
         "http://localhost:5173",
+        "https://portfolio-7ivoxqw07-tatai-s-projects.vercel.app/",
         "http://localhost:3000",
       ].filter(Boolean);
 
