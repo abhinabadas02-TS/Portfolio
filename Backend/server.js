@@ -154,7 +154,7 @@ import connectDB from "./config/db.js";
 import { verifyMailer } from "./config/Mailer.js";
 import { verifyAIClient } from "./config/aiClient.js";
 import contactRoutes from "./routes/Contact.js";
-import analyticsRoutes from "./routes/analytics.js";
+import analyticsRoutes from "./routes/Analytics.js";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
