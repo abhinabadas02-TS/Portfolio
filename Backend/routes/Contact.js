@@ -75,7 +75,7 @@ import {
   getMessages,
   updateMessageStatus,
   deleteMessage,
-} from "../controllers/contactController.js"; // ← exact filename casing
+} from "../controllers/Contactcontroller.js"; // ← exact filename casing
 import adminAuth from "../middleware/adminAuth.js";   // ← exact filename casing
 
 const router = express.Router();
