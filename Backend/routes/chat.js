@@ -1,7 +1,7 @@
 import express from "express";
 import rateLimit from "express-rate-limit";
 import { chatWithAI, getChatLogs } from "../controllers/chatController.js";
-import adminAuth from "../middleware/adminAuth.js";
+import adminAuth from "../middleware/AdminAuth.js";
 
 const router = express.Router();
 
