@@ -206,7 +206,7 @@
 
 
 import Contact from "../models/Contact.js";
-import { sendContactNotification } from "../config/mailer.js"; // ← lowercase 'm' — must match filename exactly
+import { sendContactNotification } from "../config/Mailer.js"; // ← lowercase 'm' — must match filename exactly
 
 // ─────────────────────────────────────────────
 // POST /api/contact
