@@ -174,17 +174,40 @@ verifyAIClient();
 // ─────────────────────────────────────────────
 
 // CORS — only allow your frontend
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       const allowed = [
+//         process.env.FRONTEND_URL,
+//         "http://localhost:5173",
+//         "http://localhost:3000",
+//       ].filter(Boolean);
+
+//       // Allow requests with no origin (e.g. Postman, curl)
+//       if (!origin || allowed.includes(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error(`CORS blocked: origin ${origin} not allowed`));
+//       }
+//     },
+//     methods: ["GET", "POST", "PATCH", "DELETE", "OPTIONS"],
+//     allowedHeaders: ["Content-Type", "Authorization"],
+//     credentials: true,
+//   })
+// );
+
+
 app.use(
   cors({
     origin: (origin, callback) => {
       const allowed = [
-        process.env.FRONTEND_URL,
+        process.env.FRONTEND_URL?.replace(/\/$/, ""), // remove trailing slash if present
         "http://localhost:5173",
         "http://localhost:3000",
       ].filter(Boolean);
 
-      // Allow requests with no origin (e.g. Postman, curl)
-      if (!origin || allowed.includes(origin)) {
+      // Allow requests with no origin (Postman, health checks, etc.)
+      if (!origin || allowed.includes(origin.replace(/\/$/, ""))) {
         callback(null, true);
       } else {
         callback(new Error(`CORS blocked: origin ${origin} not allowed`));
