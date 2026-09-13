@@ -153,7 +153,7 @@ import rateLimit from "express-rate-limit";
 import connectDB from "./config/db.js";
 import { verifyMailer } from "./config/Mailer.js";
 import { verifyAIClient } from "./config/aiClient.js";
-import contactRoutes from "./routes/contact.js";
+import contactRoutes from "./routes/Contact.js";
 import analyticsRoutes from "./routes/analytics.js";
 import chatRoutes from "./routes/chat.js";
 
